@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+html {
+    background-color: gray;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+    border: 1px solid black;
+    margin: auto;
+    width: 80%;
+}
+
+h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+div#chartArea {
+    text-align: center;
+}
+
+svg#svgCanvas {
+    border: 1px solid grey;
+    background-color: rgba(248, 244, 244, 0.932);
+    border-radius: 15px;
+	width: 90%;
+}
+
+#footer {
+    text-align: right;
+    margin-right: 10em;
+    margin-top: 1em;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.bar {
+  stroke: black;
+  stroke-width: 2;
+  fill-opacity:0.7;
+  stroke-opacity:0.5;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+}
+
+.bar:hover,.bar:focus {
+  fill: slategray;
+}
+
+.pie {
+    cursor: pointer;
+}
+
+.pie:hover, .pie:focus {
+  stroke: slategray;
+}
+
+polyline {
+    cursor: pointer;
+}
+
+polyline:hover, polyline:focus {
+  stroke: #67727c;
+}
+
+/* Dropdown Content for pie charts (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #67727c;
+  min-width: 60px;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+ /* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #343a40;
+    color: skyblue;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #343a40;}
+
+/* css for update data page */
+.quarterly_titles {
+    margin-left: 40px;
+    margin-right: auto;
+}
+
+/* form css */
+.header {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 0.8em;
+}
+
+.data {
+    width: 80px;
+    border-radius: 10px;
+}
+
+.dataUpdate {
+    width: 90%;
+    border: 1px solid gray;
+    background-color: rgba(248, 244, 244, 0.932);
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+#dataFooter {
+    text-align: right;
+    margin-right: 5em;
+    margin-top: 1em;
+    font-style: italic;
+}

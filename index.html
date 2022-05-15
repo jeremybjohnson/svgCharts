@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/charts.css">
+
+    <script type="text/javascript" src="scripts/charts_svg.js"></script>
+    <title>Quarterly Plots</title>
+  </head>
+
+  <body onload='updateData()'>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <!-- hamburger icon-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerMainMenu"
+          aria-controls="navbarTogglerMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- menu -->
+        <div class="collapse navbar-collapse" id="navbarTogglerMainMenu">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:updateData('bar')" style='color: white;'>Bar Chart</a>
+            </li>
+            <li class="nav-item"> 
+              <a class="nav-link" href="javascript:updateData('line')" style='color: white;'>Line Chart</a> 
+            </li>
+
+            <div class="dropdown">
+              <li class="nav-item"> 
+                <a class="nav-link dropbtn" href="#" style='color: white;'>Pie Chart</a> 
+              </li>
+                <i class="fa fa-caret-down"></i>
+              <div class="dropdown-content" id='myDropdown'>
+                <a class="nav-link" href="javascript:updateData('pie0')" style='color: white;'>Q1</a>
+                <a class="nav-link" href="javascript:updateData('pie1')" style='color: white;'>Q2</a>
+                <a class="nav-link" href="javascript:updateData('pie2')" style='color: white;'>Q3</a>
+                <a class="nav-link" href="javascript:updateData('pie3')" style='color: white;'>Q4</a>
+              </div>
+            </div>
+          </ul>
+          <!-- search field and button -->
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <div id='chartArea' class='container svg_container'>
+      <h1>Quarterly Activity</h1>
+      <h2 id='chartTitle'></h2>
+      <svg  id='svgCanvas' viewbox='0 0 800 400' xmlns='http://www.w3.org/2000/svg' version='1.1'>
+      </svg>
+      <p id='footer'>hover graph for data</p> 
+
+
+    <h1>Update Plot Data</h1>
+    <div class='dataUpdate'>
+      <!-- header for quarterly data input-->
+      <div class="row quarterly_titles">
+        <div class="col-sm data">
+        </div>
+        <p class="col-sm header">Color</p>
+        <p class="col-sm header">Q1</p>
+        <p class="col-sm header">Q2</p>
+        <p class="col-sm header">Q3</p>
+        <p class="col-sm header">Q4</p>
+      </div>
+    
+    <!-- data1 row-->
+    <div class="row quarterly_titles">
+        <div class="col-sm header">
+            <p>Data 1</p>
+        </div>
+        <div class="col-sm">
+            <input type="color" class="form-control data" id='color1' value='#b22222'>
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data1_q1" min=0 max=100 value="10" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data1_q2" min=0 max=100 value="45" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data1_q3" min=0 max=100 value="20" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data1_q4" min=0 max=100 value='75' />
+        </div>
+    </div>
+    
+    <!-- data2 row-->
+    <div class="row quarterly_titles" id="">
+        <div class="col-sm header">
+            <p>Data 2</p>
+        </div>
+        <div class="col-sm">
+          <input type="color" id='color2' class="form-control data"  value='#4682b4'>
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data2_q1" min=0 max=100 value="100" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data2_q2" min=0 max=100 value="80" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data2_q3" min=0 max=100 value="40" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data2_q4" min=0 max=100 value="65" />
+        </div>
+    </div>
+    
+    <!-- data3 row-->
+    <div class="row quarterly_titles" id="">
+        <div class="col-sm header">
+            <p>Data 3</p>
+        </div>
+        <div class="col-sm">
+          <input type="color" id='color3' class="form-control data" value='#2e8b57'>
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data3_q1" min=0 max=100 value="75" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data3_q2" min=0 max=100 value="40" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data3_q3" min=0 max=100 value="65" />
+        </div>
+        <div class="col-sm">
+            <input type="number" class="form-control data" id="data3_q4" min=0 max=100 value="20" />
+        </div>
+    </div>
+    <button type="button" class="btn btn-link" onclick="updateData('bar')">Bar Chart</button><button type="button" class="btn btn-link" onclick="updateData('line')">Line Chart</button><button type="button" class="btn btn-link" onclick="updateData('pie0')">Pie Chart</button>
+    <!-- dataUpdate div -->
+    </div>
+    <p id='dataFooter'>*Enter numbers from 0 - 100</p>
+    <!-- container div -->
+    </div>
+    <br><br><br>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
